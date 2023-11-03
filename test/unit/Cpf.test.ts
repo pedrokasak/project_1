@@ -20,3 +20,7 @@ test("Must be try valid cpf big", function () {
 test("Must be try valid cpf little", function () {
   expect(() => new Cpf("111.456")).toThrow(new Error("Invalid Cpf!"));
 });
+
+test("Should be invalid cpf type", function () {
+  expect(() => new Cpf("//111456//")).toThrow(new Error("Invalid Cpf!"));
+});

@@ -19,3 +19,11 @@ test("Should be create discount and calculate discount", function () {
   const discount  = coupon.calculateDiscount(1000);
   expect(discount).toBe(200);
 });
+
+test("Should be create discount and calculate discount not valid", function () {
+  const coupon = new Coupon("BLACK10", 10);
+  const today = new Date("2023-11-2")
+  const discount  = coupon.calculateDiscount(1000, today);
+  expect(discount).toBeTruthy();
+});
+

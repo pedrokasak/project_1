@@ -1,5 +1,5 @@
 import Order from "../../domain/entity/Order";
-import PlaceOrderinput from "./PlaceOrderInput";
+import PlaceOrderInput from "./PlaceOrderInput";
 import PlaceOrderOutput from "./PlaceOrderOutput";
 import ItemRepository from "../../domain/repository/ItemRepository";
 import OrderRepository from "../../domain/repository/OrderRepository";
@@ -12,7 +12,7 @@ export default class PlaceOrder {
     readonly cuponRepository: CouponRepository
   ) {}
 
-  async execute(input: PlaceOrderinput): Promise<PlaceOrderOutput> {
+  async execute(input: PlaceOrderInput): Promise<PlaceOrderOutput> {
     const order = new Order(input.cpf, input.date);
     for (const orderItem of input.orderItems) {
       const item = await this.itemRepository.findById(orderItem.idItem);

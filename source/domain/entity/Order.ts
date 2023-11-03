@@ -7,7 +7,7 @@ import DefaulFreightCalculator from "./DefaultFreightCalculator";
 
 export default class Order {
   cpf: Cpf;
-  orderItems: OrderItem[];
+  private orderItems: OrderItem[];
   coupon: Coupon | undefined;
   private freight: number;
 
@@ -44,6 +44,7 @@ export default class Order {
     if (this.coupon) {
       total -= this.coupon.calculateDiscount(total, this.date);
     }
+    total += this.getFreight()
     return total;
   }
 }
