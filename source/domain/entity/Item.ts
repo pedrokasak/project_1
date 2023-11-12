@@ -17,5 +17,4 @@ export default class Item {
   getDensity() {
     return this.getVolume() / this.weight;
   }
-
 }

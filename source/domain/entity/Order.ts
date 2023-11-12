@@ -1,9 +1,9 @@
-import Cpf from "./Cpf";
-import Item from "./Item";
-import OrderItem from "./OrderItem";
-import Coupon from "./Coupon";
-import FreightCalculator from "./FreightCalculator";
-import DefaulFreightCalculator from "./DefaultFreightCalculator";
+import Cpf from './Cpf';
+import Item from './Item';
+import OrderItem from './OrderItem';
+import Coupon from './Coupon';
+import FreightCalculator from './FreightCalculator';
+import DefaulFreightCalculator from './DefaultFreightCalculator';
 
 export default class Order {
   cpf: Cpf;
@@ -44,7 +44,7 @@ export default class Order {
     if (this.coupon) {
       total -= this.coupon.calculateDiscount(total, this.date);
     }
-    total += this.getFreight()
+    total += this.getFreight();
     return total;
   }
 }

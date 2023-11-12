@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "npm run eslint"
+    "format": "eslint"
   },
   "author": "Pedro Henrique",
   "license": "ISC",

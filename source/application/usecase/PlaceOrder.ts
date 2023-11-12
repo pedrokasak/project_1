@@ -1,9 +1,9 @@
-import Order from "../../domain/entity/Order";
-import PlaceOrderInput from "./PlaceOrderInput";
-import PlaceOrderOutput from "./PlaceOrderOutput";
-import ItemRepository from "../../domain/repository/ItemRepository";
-import OrderRepository from "../../domain/repository/OrderRepository";
-import CouponRepository from "../../domain/repository/CouponRepository";
+import Order from '../../domain/entity/Order';
+import PlaceOrderInput from './PlaceOrderInput';
+import PlaceOrderOutput from './PlaceOrderOutput';
+import ItemRepository from '../../domain/repository/ItemRepository';
+import OrderRepository from '../../domain/repository/OrderRepository';
+import CouponRepository from '../../domain/repository/CouponRepository';
 
 export default class PlaceOrder {
   constructor(
@@ -17,10 +17,10 @@ export default class PlaceOrder {
 
     for (const orderItem of input.orderItems) {
       const item = await this.itemRepository.findById(orderItem.idItem);
-      if (!item) throw new Error("Item not found");
+      if (!item) throw new Error('Item not found');
       order.addItem(item, orderItem.quantity);
     }
-    
+
     if (input.coupon) {
       const coupon = await this.cuponRepository.findByCode(input.coupon);
       if (coupon) order.addCoupon(coupon);
