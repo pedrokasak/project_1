@@ -13,6 +13,7 @@ export default class PlaceOrder {
   ) {}
 
   async execute(input: PlaceOrderInput): Promise<PlaceOrderOutput> {
+    const sequence = await this.orderRepository.count() + 1;
     const order = new Order(input.cpf, input.date);
 
     for (const orderItem of input.orderItems) {
@@ -28,7 +29,7 @@ export default class PlaceOrder {
 
     this.orderRepository.save(order);
     const total = order.getTotal();
-    const output = new PlaceOrderOutput(total);
+    const output = new PlaceOrderOutput(order.getCode(), total);
     return output;
   }
 }

@@ -68,4 +68,12 @@ test("Should be create order with 3 items with freight specific calculate", func
   expect(freight).toBe(40);
 });
 
-
+test("Should be create order with code", function () {
+  const cpf = "126.239.587-93";
+  const order = new Order(cpf, new Date(), new FixedFreightCalculator());
+  order.addItem(new Item(10, "Memory RAM 16GB DDR4", "Hardware", 150, 0.5, 0.2, 0.5, 0.03), 2); 
+  order.addItem(new Item(11, "Graphic Card RTX 4060 8GB", "Hardware", 3500, 0.6, 0.25, 0.32, 2), 1); 
+  order.addItem(new Item(12, "Fonte GAMEMAX 650W ", "Hardware", 400, 0.40, 0.53, 0.32, 4), 1); 
+  const code = order.getCode();
+  expect(code).toBe("202300000001");
+});
