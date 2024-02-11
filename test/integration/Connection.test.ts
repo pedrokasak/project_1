@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client'
-import PrismaPromiseAdapter from '../../source/infra/repository/database/PrismaPromiseAdapter';
+import PrismaPromiseAdapter from '../../source/infra/database/PrismaPromiseAdapter';
 
 test("Must be connection database prisma", async function () {
   const prisma = new PrismaClient()
-  const connection = await prisma.$connect;
+  const connection = prisma.$connect;
   expect(connection).toBeTruthy();
 });
 

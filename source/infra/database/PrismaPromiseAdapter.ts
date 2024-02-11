@@ -7,7 +7,8 @@ export default class PrismaPromiseAdapter implements Connection {
   constructor() {
     this.prisma = new PrismaClient();
   }
-  create(
+  async create(
+    id_item: number,
     category: string,
     description: string,
     price: number,
@@ -16,7 +17,22 @@ export default class PrismaPromiseAdapter implements Connection {
     length: number,
     weigth: number
   ): Promise<void> {
-    throw new Error('Method not implemented.');
+    try {
+      await this.prisma.item.create({
+        data: {
+          id_item: id_item,
+          category: category,
+          description: description,
+          price: price,
+          width: width,
+          heigth: heigth,
+          length: length,
+          weigth: weigth
+        }
+      });
+    } catch (error: any) {
+      throw new Error(error);
+    }
   }
 
   async findAll(): Promise<any> {

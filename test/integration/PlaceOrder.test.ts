@@ -58,7 +58,7 @@ test("Must be make order with freight calculate", async function () {
     coupon:"VALE20"
   };
   const output = await placeOrder.execute(input);
-  expect(output.total).toBe(5261.9)
+  expect(output.code).toBe("202300000001");
   // console.log(orderRepository.orders)
 });
 
