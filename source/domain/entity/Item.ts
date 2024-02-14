@@ -1,6 +1,8 @@
+import OrderCode from "./OrderCode";
+
 export default class Item {
   constructor(
-    readonly idItem: number,
+    readonly idItem: OrderCode = new OrderCode(),
     readonly category: string,
     readonly description: string,
     readonly price: number = 0,

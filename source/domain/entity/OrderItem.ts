@@ -1,6 +1,8 @@
+import OrderCode from "./OrderCode";
+
 export default class OrderItem {
   constructor(
-    readonly idItem: number,
+    readonly idItem: OrderCode,
     readonly price: number,
     readonly quantity: number
   ) {}

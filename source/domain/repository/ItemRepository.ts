@@ -1,5 +1,6 @@
 import Item from '../entity/Item';
+import OrderCode from '../entity/OrderCode';
 
 export default interface ItemRepository {
-  findById(idItem: number): Promise<Item | undefined>;
+  findById(idItem: OrderCode): Promise<Item | undefined>;
 }

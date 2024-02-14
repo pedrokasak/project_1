@@ -55,6 +55,17 @@ export default class PrismaPromiseAdapter implements Connection {
       this.disconnect();
     }
   }
+  async delete(id_item: number): Promise<void> {
+    try {
+      await this.prisma.item.delete({
+        where: {
+          id_item: id_item,
+        },
+      });
+    } catch (error) {
+      this.disconnect();
+    }
+  }
 
   async disconnect(): Promise<void> {
     await this.prisma.$disconnect();

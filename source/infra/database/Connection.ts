@@ -11,5 +11,6 @@ export default interface Connection {
     length: number,
     weigth: number
   ): Promise<void>;
+  delete(id_item: number): Promise<void>;
   
 }
